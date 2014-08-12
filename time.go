@@ -21,3 +21,7 @@ func (j Time) MarshalText() ([]byte, error) {
 func (j Time) MarshalJSON() ([]byte, error) {
 	return []byte(`"` + j.format() + `"`), nil
 }
+
+func (j Time) String() string {
+	return j.String()
+}

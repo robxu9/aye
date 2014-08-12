@@ -79,7 +79,7 @@ func (d *DOClient) DomainRecord(domain string, id uint64) (*DomainRecord, error)
 }
 
 func (d *DomainRecord) Update() error {
-	req, err := d.client.newDefaultRequest("PUT", fmt.Sprintf("/v2/domains/%s/records/%d", d.domain, d.Id), map[string]string{
+	req, err := d.client.newDefaultRequest("PUT", fmt.Sprintf("/v2/domains/%s/records/%d", d.domain, d.Id), map[string]interface{}{
 		"name": d.Name,
 	})
 
