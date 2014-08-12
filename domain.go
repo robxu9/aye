@@ -34,7 +34,7 @@ func (d *DOClient) CreateDomain(name string, ip net.IP) (*Domain, error) {
 
 	result := new(DomainResult)
 
-	_, err = d.DoAndDecode(req, result)
+	_, err = d.doAndDecode(req, result)
 
 	if err != nil {
 		return nil, err
@@ -54,7 +54,7 @@ func (d *DOClient) Domain(name string) (*Domain, error) {
 
 	result := new(DomainResult)
 
-	_, err = d.DoAndDecode(req, result)
+	_, err = d.doAndDecode(req, result)
 
 	if err != nil {
 		return nil, err
@@ -72,7 +72,7 @@ func (d *Domain) Delete() error {
 		return err
 	}
 
-	_, err = d.client.Do(req)
+	_, err = d.client.do(req)
 	return err
 }
 
@@ -84,7 +84,7 @@ func (d *DOClient) ListDomains(page int) (*Domains, error) {
 
 	domains := new(Domains)
 
-	_, err = d.DoAndDecode(req, domains)
+	_, err = d.doAndDecode(req, domains)
 
 	if err != nil {
 		return nil, err

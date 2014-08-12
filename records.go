@@ -33,7 +33,7 @@ func (d *DOClient) CreateDomainRecord(domain string, record *DomainRecord) (*Dom
 
 	result := new(DomainRecordResult)
 
-	_, err = d.DoAndDecode(req, result)
+	_, err = d.doAndDecode(req, result)
 
 	if err != nil {
 		return nil, err
@@ -52,7 +52,7 @@ func (d *DomainRecord) Delete() error {
 		return err
 	}
 
-	_, err = d.client.Do(req)
+	_, err = d.client.do(req)
 
 	return err
 }
@@ -65,7 +65,7 @@ func (d *DOClient) DomainRecord(domain string, id uint64) (*DomainRecord, error)
 
 	result := new(DomainRecordResult)
 
-	_, err = d.DoAndDecode(req, result)
+	_, err = d.doAndDecode(req, result)
 
 	if err != nil {
 		return nil, err
@@ -87,7 +87,7 @@ func (d *DomainRecord) Update() error {
 		return err
 	}
 
-	_, err = d.client.Do(req)
+	_, err = d.client.do(req)
 	return err
 }
 
@@ -99,7 +99,7 @@ func (d *DOClient) ListDomainRecords(domain string, page int) (*DomainRecords, e
 
 	records := new(DomainRecords)
 
-	_, err = d.DoAndDecode(req, records)
+	_, err = d.doAndDecode(req, records)
 
 	if err != nil {
 		return nil, err

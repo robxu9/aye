@@ -52,7 +52,7 @@ func (d *DOClient) newRequest(method, urlStr string, v interface{}) (*http.Reque
 	return req, nil
 }
 
-func (d *DOClient) Do(req *http.Request) (*http.Response, error) {
+func (d *DOClient) do(req *http.Request) (*http.Response, error) {
 	resp, err := d.Client.Do(req)
 	if err != nil {
 		return nil, err
@@ -74,8 +74,8 @@ func (d *DOClient) Do(req *http.Request) (*http.Response, error) {
 	}
 }
 
-func (d *DOClient) DoAndDecode(req *http.Request, v interface{}) (*http.Response, error) {
-	resp, err := d.Do(req)
+func (d *DOClient) doAndDecode(req *http.Request, v interface{}) (*http.Response, error) {
+	resp, err := d.do(req)
 	if err != nil {
 		return nil, err
 	}

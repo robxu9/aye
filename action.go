@@ -31,7 +31,7 @@ func (d *DOClient) Action(id int) (*Action, error) {
 
 	action := new(ActionResult)
 
-	_, err = d.DoAndDecode(req, action)
+	_, err = d.doAndDecode(req, action)
 
 	if err != nil {
 		return nil, err
@@ -48,7 +48,7 @@ func (d *DOClient) ListActions(page int) (*Actions, error) {
 
 	actions := new(Actions)
 
-	_, err = d.DoAndDecode(req, actions)
+	_, err = d.doAndDecode(req, actions)
 
 	if err != nil {
 		return nil, err

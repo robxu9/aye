@@ -90,7 +90,7 @@ func (d *DOClient) ListDroplets(page int) (*Droplets, error) {
 
 	droplets := new(Droplets)
 
-	_, err = d.DoAndDecode(req, droplets)
+	_, err = d.doAndDecode(req, droplets)
 
 	if err != nil {
 		return nil, err
@@ -111,7 +111,7 @@ func (d *DOClient) CreateDroplet(params *DropletCreate) (*Droplet, error) {
 
 	result := new(DropletResult)
 
-	_, err = d.DoAndDecode(req, result)
+	_, err = d.doAndDecode(req, result)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (d *DOClient) Droplet(id uint64) (*Droplet, error) {
 
 	result := new(DropletResult)
 
-	_, err = d.DoAndDecode(req, result)
+	_, err = d.doAndDecode(req, result)
 	if err != nil {
 		return nil, err
 	}
@@ -145,7 +145,7 @@ func (d *Droplet) Delete() error {
 		return err
 	}
 
-	_, err = d.client.Do(req)
+	_, err = d.client.do(req)
 	return err
 }
 
@@ -157,7 +157,7 @@ func (d *Droplet) ListKernels(page int) (*Kernels, error) {
 
 	kernels := new(Kernels)
 
-	_, err = d.client.DoAndDecode(req, kernels)
+	_, err = d.client.doAndDecode(req, kernels)
 
 	if err != nil {
 		return nil, err
@@ -174,7 +174,7 @@ func (d *Droplet) ListSnapshots(page int) (*Snapshots, error) {
 
 	snapshots := new(Snapshots)
 
-	_, err = d.client.DoAndDecode(req, snapshots)
+	_, err = d.client.doAndDecode(req, snapshots)
 
 	if err != nil {
 		return nil, err
@@ -195,7 +195,7 @@ func (d *Droplet) ListBackups(page int) (*Backups, error) {
 
 	backups := new(Backups)
 
-	_, err = d.client.DoAndDecode(req, backups)
+	_, err = d.client.doAndDecode(req, backups)
 
 	if err != nil {
 		return nil, err
@@ -216,7 +216,7 @@ func (d *Droplet) ListActions(page int) (*Actions, error) {
 
 	actions := new(Actions)
 
-	_, err = d.client.DoAndDecode(req, actions)
+	_, err = d.client.doAndDecode(req, actions)
 
 	if err != nil {
 		return nil, err

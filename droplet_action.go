@@ -15,7 +15,7 @@ func (d *Droplet) doAction(t string, params map[string]interface{}) (*Action, er
 
 	action := new(ActionResult)
 
-	_, err = d.client.DoAndDecode(req, action)
+	_, err = d.client.doAndDecode(req, action)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +103,7 @@ func (d *Droplet) Action(id uint64) (*Action, error) {
 
 	action := new(ActionResult)
 
-	_, err = d.client.DoAndDecode(req, action)
+	_, err = d.client.doAndDecode(req, action)
 	if err != nil {
 		return nil, err
 	}
